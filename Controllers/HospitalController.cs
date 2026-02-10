@@ -22,6 +22,9 @@ namespace Security.Controllers
             IEnumerable<Hospital> items = await _service.GetAll();
             return Ok(items);
         }
+
+        // Obtiene un hospital por su identificador.
+        /// Requiere autenticación.
         [HttpGet("{id:guid}")]
         [Authorize]
         public async Task<IActionResult> GetOne(Guid id)
