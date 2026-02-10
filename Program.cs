@@ -37,6 +37,8 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", p => p.RequireRole("Admin"));
 });
+
+//injections
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<IHospitalRepository, HospitalRepository>();
